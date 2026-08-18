@@ -75,7 +75,8 @@ All initial acceptance criteria were satisfied during testing in Processing. I m
 
 ### 4.1 Link to Commit
 **Code-comment commit:** https://github.com/aaaaguo/cat-clean-star/commit/10c08925e78e3758a92fd4b03f0820e8bdb719a8  
-**Original cleaning implementation commit:** https://github.com/aaaaguo/cat-clean-star/commit/458d8dbc36fdeb5d37967e32726ec93a40c619cc
+**Original cleaning implementation commit:** https://github.com/aaaaguo/cat-clean-star/commit/458d8dbc36fdeb5d37967e32726ec93a40c619cc  
+**Final tested program commit:** https://github.com/aaaaguo/cat-clean-star/commit/5c649dbbddabfff9ca02433506ad1fab46e87816
 
 **Insert a screenshot of the `checkStarCleaning()` code from the commit above.**
 
@@ -122,5 +123,5 @@ The observed result matched the expected outcome. The star changed to the clean 
 - [ ] Insert Issue #4 screenshot showing title and acceptance criteria.
 - [ ] Insert Question 4 commit/code screenshot.
 - [x] Running Processing program screenshot available.
-- [x] Update completed Issue states.
+- [ ] Confirm completed Issues are shown as Done/Closed in GitHub Project.
 - [ ] Export the final report as PDF and keep it within the page limit.
