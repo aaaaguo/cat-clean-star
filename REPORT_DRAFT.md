@@ -45,7 +45,7 @@ All acceptance criteria are testable and measurable because each one has an obse
 **Insert screenshot: GitHub repository → Insights → Contributors.**
 
 ### 2.1 My Contributions and Trends
-The GitHub contribution history shows that I am the sole contributor to this instructor-approved individual project. My commits document a staged development process rather than one single final upload. I first created the base Processing scene and cat, then added keyboard movement and canvas boundaries, followed by dirty-star objects. The next stage implemented the cat-star cleaning interaction and cleaned-star counter, after which I added the completion message, reset behaviour, project documentation, a system test plan and clearer code comments. Most activity occurred on 18 August 2026 because this was the main implementation and documentation session. The sequence of commits demonstrates progressive development, with each change corresponding to a specific project requirement or Issue rather than combining all functionality into one undocumented update.
+The GitHub Insights contribution overview records me as the sole contributor, and the repository contains 18 commits in total after final documentation. My commits show a staged development process rather than one single final upload. I first created the base Processing scene and cat, then added keyboard movement and canvas boundaries, followed by dirty-star objects. The next stage implemented the cat-star cleaning interaction and cleaned-star counter, after which I added the completion message, reset behaviour, project documentation, a system test plan and clearer code comments. Most activity occurred on 18 August 2026 because this was the main implementation and documentation session. The sequence of commits demonstrates progressive development, with changes corresponding to specific requirements, Issues, testing and documentation tasks.
 
 ### 2.2 Accuracy of the Contributions Overview
 The GitHub contribution overview is useful because it provides objective evidence of repository activity, commit timing and authorship. In this project, it correctly identifies me as the only contributor because the instructor approved a one-person team. However, the contribution graph does not fully represent all work involved in the project. Planning the user story, defining acceptance criteria, deciding the visual layout, testing behaviour, identifying edge cases and managing the Project board required additional effort that is not fully represented by the number of code changes. For this reason, I consider GitHub accurate for recorded repository activity but incomplete as a measure of total project effort. The contribution graph should therefore be interpreted together with the Issues, commit history, Project board, test plan and final program behaviour.
@@ -77,8 +77,6 @@ All initial acceptance criteria were satisfied during testing in Processing. I m
 **Code-comment commit:** https://github.com/aaaaguo/cat-clean-star/commit/10c08925e78e3758a92fd4b03f0820e8bdb719a8  
 **Original cleaning implementation commit:** https://github.com/aaaaguo/cat-clean-star/commit/458d8dbc36fdeb5d37967e32726ec93a40c619cc  
 **Final tested program commit:** https://github.com/aaaaguo/cat-clean-star/commit/5c649dbbddabfff9ca02433506ad1fab46e87816
-
-**Insert a screenshot of the `checkStarCleaning()` code from the commit above.**
 
 ```java
 void checkStarCleaning() {
@@ -118,10 +116,9 @@ The observed result matched the expected outcome. The star changed to the clean 
 - [x] Name and Student Number entered.
 - [x] Complete program run successfully in Processing.
 - [x] TC-01 to TC-07 executed and passed.
-- [ ] Insert GitHub Insights → Contributors screenshot.
-- [x] Project Board screenshot is available from the project setup/development evidence.
-- [ ] Insert Issue #4 screenshot showing title and acceptance criteria.
-- [ ] Insert Question 4 commit/code screenshot.
+- [ ] Insert GitHub Insights → Contributors screenshot (required by Question 2).
+- [x] GitHub Issue #4 link and acceptance criteria included.
+- [x] Question 4 commit link and commented code copy included.
 - [x] Running Processing program screenshot available.
-- [ ] Confirm completed Issues are shown as Done/Closed in GitHub Project.
-- [ ] Export the final report as PDF and keep it within the page limit.
+- [x] Issues #1-#6 are closed as completed.
+- [ ] Export the final report as PDF after inserting the Contributors screenshot.
