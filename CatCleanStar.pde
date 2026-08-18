@@ -1,53 +1,53 @@
 // Cat Clean Star
 // Subject: Cat | Action: Clean | Object: Star
 
-float catX = 100;                 // Cat horizontal position
-float catY = 300;                 // Cat vertical position
-float catSpeed = 4;               // Cat movement speed
+float catX = 100;
+float catY = 300;
+float catSpeed = 4;
 
-boolean moveUp = false;           // Tracks UP key state
-boolean moveDown = false;         // Tracks DOWN key state
-boolean moveLeft = false;         // Tracks LEFT key state
-boolean moveRight = false;        // Tracks RIGHT key state
+boolean moveUp = false;
+boolean moveDown = false;
+boolean moveLeft = false;
+boolean moveRight = false;
 
-int starCount = 5;                // Total number of stars
-float[] starX = {230, 430, 650, 760, 350}; // Star x positions
-float[] starY = {170, 440, 180, 410, 300}; // Star y positions
-boolean[] starClean = new boolean[starCount]; // Stores whether each star is clean
-int cleanedCount = 0;             // Number of stars cleaned
+int starCount = 5;
+float[] starX = {230, 430, 650, 760, 350};
+float[] starY = {170, 440, 180, 410, 300};
+boolean[] starClean = new boolean[starCount];
+int cleanedCount = 0;
 
 void setup() {
-  size(900, 600);                 // Create the game canvas
-  smooth();                       // Smooth shape edges
-  textAlign(CENTER, CENTER);      // Centre text around its coordinates
+  size(900, 600);
+  smooth();
+  textAlign(CENTER, CENTER);
 }
 
 void draw() {
-  background(25, 30, 50);         // Draw the background each frame
+  background(25, 30, 50);
 
-  fill(255);                      // Set title colour to white
-  textSize(28);                   // Set title text size
-  text("CAT CLEAN STAR", width / 2, 35); // Display project title
+  fill(255);
+  textSize(28);
+  text("CAT CLEAN STAR", width / 2, 35);
 
-  updateCat();                    // Update movement from keyboard input
-  checkStarCleaning();            // Check whether the cat touches a dirty star
-  drawStars();                    // Draw all stars
-  drawCat(catX, catY);            // Draw the cat at its current position
-  drawHUD();                      // Display progress and controls
+  updateCat();
+  checkStarCleaning();
+  drawStars();
+  drawCat(catX, catY);
+  drawHUD();
 
-  if (cleanedCount == starCount) { // Check whether every star is clean
-    drawCompletionScreen();       // Display the completion message
+  if (cleanedCount == starCount) {
+    drawCompletionScreen();
   }
 }
 
 void updateCat() {
-  if (moveUp) catY -= catSpeed;   // Move the cat upward
-  if (moveDown) catY += catSpeed; // Move the cat downward
-  if (moveLeft) catX -= catSpeed; // Move the cat left
-  if (moveRight) catX += catSpeed;// Move the cat right
+  if (moveUp) catY -= catSpeed;
+  if (moveDown) catY += catSpeed;
+  if (moveLeft) catX -= catSpeed;
+  if (moveRight) catX += catSpeed;
 
-  catX = constrain(catX, 35, width - 35);   // Keep cat inside horizontal boundary
-  catY = constrain(catY, 80, height - 35);  // Keep cat inside vertical boundary
+  catX = constrain(catX, 35, width - 35);
+  catY = constrain(catY, 80, height - 35);
 }
 
 void checkStarCleaning() {
@@ -67,16 +67,16 @@ void drawStars() {
     strokeWeight(2);
 
     if (starClean[i]) {
-      fill(255, 220, 40);          // Clean star is yellow
+      fill(255, 220, 40);
     } else {
-      fill(135, 135, 150);         // Dirty star is grey
+      fill(135, 135, 150);
     }
 
     drawStar(starX[i], starY[i], 27, 12, 5);
 
     if (!starClean[i]) {
       noStroke();
-      fill(80, 70, 70);            // Add small dark dirt marks
+      fill(80, 70, 70);
       ellipse(starX[i] - 5, starY[i] - 4, 5, 5);
       ellipse(starX[i] + 7, starY[i] + 7, 4, 4);
     }
@@ -104,28 +104,28 @@ void drawCat(float x, float y) {
   noFill();
   stroke(245, 160, 70);
   strokeWeight(8);
-  arc(-25, 15, 45, 45, HALF_PI, PI + HALF_PI); // Tail
+  arc(-25, 15, 45, 45, HALF_PI, PI + HALF_PI);
 
   noStroke();
   fill(245, 160, 70);
-  ellipse(0, 15, 58, 42);          // Body
-  ellipse(0, -15, 50, 44);         // Head
-  triangle(-21, -31, -13, -53, -4, -34); // Left ear
-  triangle(21, -31, 13, -53, 4, -34);     // Right ear
+  ellipse(0, 15, 58, 42);
+  ellipse(0, -15, 50, 44);
+  triangle(-21, -31, -13, -53, -4, -34);
+  triangle(21, -31, 13, -53, 4, -34);
 
   fill(30);
-  ellipse(-9, -18, 6, 8);          // Left eye
-  ellipse(9, -18, 6, 8);           // Right eye
+  ellipse(-9, -18, 6, 8);
+  ellipse(9, -18, 6, 8);
 
   fill(255, 120, 140);
-  triangle(-4, -8, 4, -8, 0, -3); // Nose
+  triangle(-4, -8, 4, -8, 0, -3);
 
   stroke(255);
   strokeWeight(1);
-  line(-6, -4, -25, -8);           // Left whisker
-  line(-6, 0, -25, 2);             // Left whisker
-  line(6, -4, 25, -8);             // Right whisker
-  line(6, 0, 25, 2);               // Right whisker
+  line(-6, -4, -25, -8);
+  line(-6, 0, -25, 2);
+  line(6, -4, 25, -8);
+  line(6, 0, 25, 2);
 
   popMatrix();
 }
@@ -144,7 +144,7 @@ void drawHUD() {
 void drawCompletionScreen() {
   fill(0, 0, 0, 160);
   noStroke();
-  rect(0, 0, width, height);        // Dark overlay
+  rect(0, 0, width, height);
 
   fill(255, 230, 70);
   textSize(42);
@@ -156,12 +156,12 @@ void drawCompletionScreen() {
 }
 
 void resetGame() {
-  catX = 100;                       // Reset cat x position
-  catY = 300;                       // Reset cat y position
-  cleanedCount = 0;                 // Reset cleaned-star counter
+  catX = 100;
+  catY = 300;
+  cleanedCount = 0;
 
   for (int i = 0; i < starCount; i++) {
-    starClean[i] = false;            // Return every star to dirty state
+    starClean[i] = false;
   }
 }
 
@@ -174,7 +174,7 @@ void keyPressed() {
   }
 
   if (key == 'r' || key == 'R') {
-    resetGame();                     // Restart when R is pressed
+    resetGame();
   }
 }
 
