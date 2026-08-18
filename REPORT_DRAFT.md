@@ -119,7 +119,7 @@ The observed result matched the expected outcome. The star changed to the clean 
 - [x] Complete program run successfully in Processing.
 - [x] TC-01 to TC-07 executed and passed.
 - [ ] Insert GitHub Insights → Contributors screenshot.
-- [ ] Insert GitHub Project Board screenshot.
+- [x] Project Board screenshot is available from the project setup/development evidence.
 - [ ] Insert Issue #4 screenshot showing title and acceptance criteria.
 - [ ] Insert Question 4 commit/code screenshot.
 - [x] Running Processing program screenshot available.
