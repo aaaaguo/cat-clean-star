@@ -10,6 +10,11 @@ boolean moveDown = false;
 boolean moveLeft = false;
 boolean moveRight = false;
 
+int starCount = 5;
+float[] starX = {230, 430, 650, 760, 350};
+float[] starY = {170, 440, 180, 410, 300};
+boolean[] starClean = new boolean[starCount];
+
 void setup() {
   size(900, 600);
   smooth();
@@ -22,6 +27,7 @@ void draw() {
   textSize(28);
   text("CAT CLEAN STAR", width / 2, 35);
   updateCat();
+  drawStars();
   drawCat(catX, catY);
 }
 
@@ -30,9 +36,36 @@ void updateCat() {
   if (moveDown) catY += catSpeed;
   if (moveLeft) catX -= catSpeed;
   if (moveRight) catX += catSpeed;
-
   catX = constrain(catX, 35, width - 35);
   catY = constrain(catY, 80, height - 35);
+}
+
+void drawStars() {
+  for (int i = 0; i < starCount; i++) {
+    stroke(230);
+    strokeWeight(2);
+    if (starClean[i]) fill(255, 220, 40);
+    else fill(135, 135, 150);
+    drawStar(starX[i], starY[i], 27, 12, 5);
+
+    if (!starClean[i]) {
+      noStroke();
+      fill(80, 70, 70);
+      ellipse(starX[i] - 5, starY[i] - 4, 5, 5);
+      ellipse(starX[i] + 7, starY[i] + 7, 4, 4);
+    }
+  }
+}
+
+void drawStar(float x, float y, float outerRadius, float innerRadius, int points) {
+  float angle = TWO_PI / points;
+  float halfAngle = angle / 2.0;
+  beginShape();
+  for (float a = -HALF_PI; a < TWO_PI - HALF_PI; a += angle) {
+    vertex(x + cos(a) * outerRadius, y + sin(a) * outerRadius);
+    vertex(x + cos(a + halfAngle) * innerRadius, y + sin(a + halfAngle) * innerRadius);
+  }
+  endShape(CLOSE);
 }
 
 void drawCat(float x, float y) {
