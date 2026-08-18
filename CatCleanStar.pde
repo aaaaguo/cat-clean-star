@@ -24,6 +24,7 @@ void setup() {
 
 void draw() {
   background(25, 30, 50);
+
   fill(255);
   textSize(28);
   text("CAT CLEAN STAR", width / 2, 35);
@@ -32,12 +33,11 @@ void draw() {
   checkStarCleaning();
   drawStars();
   drawCat(catX, catY);
+  drawHUD();
 
-  fill(255);
-  textSize(18);
-  textAlign(LEFT, CENTER);
-  text("Cleaned: " + cleanedCount + " / " + starCount, 20, 35);
-  textAlign(CENTER, CENTER);
+  if (cleanedCount == starCount) {
+    drawCompletionScreen();
+  }
 }
 
 void updateCat() {
@@ -53,6 +53,7 @@ void updateCat() {
 void checkStarCleaning() {
   for (int i = 0; i < starCount; i++) {
     float distanceToStar = dist(catX, catY, starX[i], starY[i]);
+
     if (distanceToStar < 45 && !starClean[i]) {
       starClean[i] = true;
       cleanedCount++;
@@ -85,6 +86,7 @@ void drawStars() {
 void drawStar(float x, float y, float outerRadius, float innerRadius, int points) {
   float angle = TWO_PI / points;
   float halfAngle = angle / 2.0;
+
   beginShape();
 
   for (float a = -HALF_PI; a < TWO_PI - HALF_PI; a += angle) {
@@ -128,12 +130,51 @@ void drawCat(float x, float y) {
   popMatrix();
 }
 
+void drawHUD() {
+  fill(255);
+  textSize(18);
+  textAlign(LEFT, CENTER);
+  text("Cleaned: " + cleanedCount + " / " + starCount, 20, 35);
+
+  textSize(14);
+  text("Arrow keys: Move cat     R: Restart", 20, height - 20);
+  textAlign(CENTER, CENTER);
+}
+
+void drawCompletionScreen() {
+  fill(0, 0, 0, 160);
+  noStroke();
+  rect(0, 0, width, height);
+
+  fill(255, 230, 70);
+  textSize(42);
+  text("ALL STARS ARE CLEAN!", width / 2, height / 2 - 25);
+
+  fill(255);
+  textSize(20);
+  text("Press R to play again", width / 2, height / 2 + 30);
+}
+
+void resetGame() {
+  catX = 100;
+  catY = 300;
+  cleanedCount = 0;
+
+  for (int i = 0; i < starCount; i++) {
+    starClean[i] = false;
+  }
+}
+
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP) moveUp = true;
     else if (keyCode == DOWN) moveDown = true;
     else if (keyCode == LEFT) moveLeft = true;
     else if (keyCode == RIGHT) moveRight = true;
+  }
+
+  if (key == 'r' || key == 'R') {
+    resetGame();
   }
 }
 
